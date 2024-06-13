@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #282828;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 1em;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 5em 1em;
+}
+
+.hero .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.courses, .instructors, .testimonials, .contact {
+    padding: 2em 1em;
+    background-color: #f4f4f4;
+}
+
+.courses .container, .instructors .container, .testimonials .container, .contact .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.course-grid, .instructor-grid, .testimonial-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.course-card, .instructor-card, .testimonial-card {
+    background: #fff;
+    padding: 1em;
+    border: 1px solid #ddd;
+    flex: 1 1 calc(33.333% - 2em);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.course-card img {
+    width: 100%;
+    height: auto;
+}
+
+.course-card h3, .instructor-card h3, .testimonial-card p:first-child {
+    margin-top: 0;
+}
+
+.course-card button, .contact form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    margin: 0.5em 0;
+}
+
+.course-card button:hover, .contact form button:hover {
+    background-color: #555;
+}
+
+.course-details {
+    margin-top: 1em;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact form label {
+    margin-top: 1em;
+}
+
+.contact form input, .contact form textarea {
+    padding: 0.5em;
+    margin-top: 0.5em;
+}
+
+.contact form textarea {
+    resize: vertical;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .social {
+    margin-top: 1em;
+}
+
+footer .social a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5em;
+}
+.course-card img {
+    width: 40%;
+    height: inherit;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>E-Learning</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Instructors</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Learn Anything, Anytime, Anywhere</h2>
+            <p>Join our community and start learning new skills today.</p>
+        </div>
+    </section>
+
+    <section class="courses">
+        <div class="container">
+            <h2>Featured Courses</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <img src="os1.jpg" alt="Web Development">
+                    <h3>Web Development</h3>
+                    <p>Learn HTML, CSS, JavaScript and more.</p>
+                    <button onclick="enroll('Web Development')">Enroll Now</button>
+                    <button onclick="toggleDetails('web-dev-details')">More Details</button>
+                    <div id="web-dev-details" class="course-details" style="display: none;">
+                        <p>Duration: 12 weeks</p>
+                        <p>Instructor: John Doe</p>
+                        <p>Price: $199</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="cn.jpg" alt="Data Science">
+                    <h3>Data Science</h3>
+                    <p>Master data analysis and visualization.</p>
+                    <button onclick="enroll('Data Science')">Enroll Now</button>
+                    <button onclick="toggleDetails('data-science-details')">More Details</button>
+                    <div id="data-science-details" class="course-details" style="display: none;">
+                        <p>Duration: 10 weeks</p>
+                        <p>Instructor: Siva</p>
+                        <p>Price: $249</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="wt.jpg" alt="Machine Learning">
+                    <h3>Machine Learning</h3>
+                    <p>Understand machine learning algorithms.</p>
+                    <button onclick="enroll('Machine Learning')">Enroll Now</button>
+                    <button onclick="toggleDetails('ml-details')">More Details</button>
+                    <div id="ml-details" class="course-details" style="display: none;">
+                        <p>Duration: 8 weeks</p>
+                        <p>Instructor: Nagarjuna</p>
+                        <p>Price: $299</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="dm.jpg" alt="Graphic Design">
+                    <h3>Graphic Design</h3>
+                    <p>Master the art of visual communication.</p>
+                    <button onclick="enroll('Graphic Design')">Enroll Now</button>
+                    <button onclick="toggleDetails('graphic-design-details')">More Details</button>
+                    <div id="graphic-design-details" class="course-details" style="display: none;">
+                        <p>Duration: 8 weeks</p>
+                        <p>Instructor: Malkova</p>
+                        <p>Price: $199</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="dbms.jpeg" alt="Digital Marketing">
+                    <h3>Digital Marketing</h3>
+                    <p>Learn strategies for online marketing.</p>
+                    <button onclick="enroll('Digital Marketing')">Enroll Now</button>
+                    <button onclick="toggleDetails('digital-marketing-details')">More Details</button>
+                    <div id="digital-marketing-details" class="course-details" style="display: none;">
+                        <p>Duration: 6 weeks</p>
+                        <p>Instructor: IronMan</p>
+                        <p>Price: $149</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="ds.jpeg" alt="Photography">
+                    <h3>Photography</h3>
+                    <p>Capture stunning photos like a pro.</p>
+                    <button onclick="enroll('Photography')">Enroll Now</button>
+                    <button onclick="toggleDetails('photography-details')">More Details</button>
+                    <div id="photography-details" class="course-details" style="display: none;">
+                        <p>Duration: 5 weeks</p>
+                        <p>Instructor: SuperMan</p>
+                        <p>Price: $129</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="instructors">
+        <div class="container">
+            <h2>Meet Our Instructors</h2>
+            <div class="instructor-grid">
+                <div class="instructor-card">
+                    <h3>vamsi</h3>
+                    <p>Expert in Web Development</p>
+                </div>
+                <div class="instructor-card">
+                    <h3>Siva</h3>
+                    <p>Data Science Specialist</p>
+                </div>
+                <div class="instructor-card">
+                    <h3>Iron Man</h3>
+                    <p>Machine Learning Guru</p>
+                </div>
+                <div class="instructor-card">
+                    <h3>Stark</h3>
+                    <p>Graphic Design Expert</p>
+                </div>
+                <div class="instructor-card">
+                    <h3>William</h3>
+                    <p>Digital Marketing Specialist</p>
+                </div>
+                <div class="instructor-card">
+                    <h3>Brown</h3>
+                    <p>Professional Photographer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Students Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"This platform is amazing. I learned so much!"</p>
+                    <p>- Ravi</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The courses are well-structured and the instructors are great."</p>
+                    <p>- Krishna</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I highly recommend these courses to anyone looking to improve their skills."</p>
+                    <p>- Leela</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contact-form" onsubmit="submitForm(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; vamsi krishna pallapu.</p>
+            <div class="social">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        function enroll(courseName) {
+    alert(`You have enrolled in the ${courseName} course!`);
+}
+
+function toggleDetails(id) {
+    const details = document.getElementById(id);
+    if (details.style.display === 'none' || details.style.display === '') {
+        details.style.display = 'block';
+    } else {
+        details.style.display = 'none';
+    }
+}
+
+function submitForm(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Here you would typically send the data to the server
+    console.log('Form submitted:', { name, email, message });
+
+    alert('Thank you for contacting us!');
+    document.getElementById('contact-form').reset();
+}
+
+    </script>
+</body>
+</html>
